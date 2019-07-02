@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-img :src="imgSrc"
+    <v-img id="bannerImg" :src="imgSrc"
            aspect-ratio="1.7">
       <v-layout align-center justify-center row fill-height>
         <v-flex text-xs-center>
@@ -31,4 +31,11 @@ export default {
   .text-shadow {
     text-shadow: 0 0 15px rgb(255,255,255);
   }
+  @media screen and (max-width: 760px){
+    #bannerImg{
+      height: 100vh;
+    } 
+  }
+
+
 </style>
