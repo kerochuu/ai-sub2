@@ -1,6 +1,6 @@
 <template>
   <v-layout column px-4>
-    <v-flex v-for="i in repositories.length > limits ? limits : repositories.length">
+    <v-flex sm12 md6 v-for="i in repositories.length > limits ? limits : repositories.length">
       <v-divider v-if="i === 1"></v-divider>
       <Repository :repos="repositories[i - 1]"></Repository>
       <v-divider></v-divider>

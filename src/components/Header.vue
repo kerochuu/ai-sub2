@@ -54,7 +54,7 @@ a{
 }
 
 a:hover {
-  padding: 25px;
+  padding: 10px;
   background-color: #555;
   color: white;
 }
