@@ -1,56 +1,74 @@
 <template>
-  <div class="header">
-    
-    <div class="home">
-      <router-link to="/">Home</router-link>
-    </div>
-    
-      <div class="menu-icon" id="menuIcon">
-        <div id="md-icons">
-          <button type="button" name="button">
-            <router-link to="/post">POST</router-link>
-          </button>
-          <button type="button" name="button">
-            <router-link to="/portfolio">Portfolio</router-link>
-          </button>
-          <button type="button" name="button">
-            <router-link to="/Login">Login</router-link>
-          </button>
-
-          <button type="button" name="button">
-            <router-link to="/PortfolioWrite">포트폴리오 작성</router-link>
-          </button>
-
-        </div>
-        
-
-        <button type="button" name="button">
-          <router-link to="javascript:void(0);" onclick="myFunction()"><i class="fa fa-bars"></i></router-link>
-        </button>
-      </div>
-
-  </div>
+  <v-toolbar fixed>
+    <v-toolbar-title>
+      <router-link to="/" class="logo-text" style="text-decoration:none; color:#333">Home</router-link>
+    </v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items class="hidden-sm-and-down">
+      <v-btn v-for="item in menu" :key="item.url" class="link-button" flat>
+        <router-link class="link-text" :to="'/'+item.url">{{ item.title }}</router-link>
+      </v-btn>
+    </v-toolbar-items>
+    <v-menu class="hidden-md-and-up">
+      <v-toolbar-side-icon slot="activator">
+        <v-icon>apps</v-icon>
+      </v-toolbar-side-icon>
+      <v-list class="hbmenu">
+        <v-list-tile v-for="item in menu" :key="item.url">
+          <v-list-tile-content>
+            <router-link class="link-text" :to="'/'+item.url">{{ item.title }}</router-link>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-menu>
+  </v-toolbar>
 </template>
 
 <script>
 export default {
-  name: "Header"
-}
-
-function myFunction(){
-  var x = document.getElementById("menuIcon");
-  if(x.className ==="menu-icon"){
-    x.className += "reponsive";
-  }
-  else{
-    x.className = "header";
-  }
-}
+  name: "Header",
+  data() {
+    return {
+      menu: [
+        {
+          url: "",
+          title: "home"
+        },
+        {
+          url: "post",
+          title: "post"
+        },
+        {
+          url: "portfolio",
+          title: "portfolio"
+        },
+        {
+          url: "login",
+          title: "login"
+        },
+        {
+          url: "PortfolioWrite",
+          title: "PortfolioWrite"
+        }
+      ]
+    };
+  },
+  methods: {}
+};
 </script>
 
 <style scoped>
+.v-toolbar__content {
+  min-height: 60px !important;
+  max-height: 60px !important;
+}
+.link-text{
+  text-decoration: none;
+  color: #333;
+}
 
-.header {
+
+/* .header {
   background-color: #f0f0f0;
   height: 70px;
   font-family: 'Gaegu', cursive;
@@ -96,11 +114,18 @@ a:hover {
   display: block;
 }
 
+#hamburger {
+  display: none;
+}
+
 #menuIcon > button {
   display: none;
 }
 
 @media screen and (max-width: 720px){
+  #hamburger {
+    display: block;
+  }
   .menu-icon a:not(:first-child) {
     display: none;
   }
@@ -110,7 +135,7 @@ a:hover {
   }
 
   #md-icons {
-    display: none;
+    display: block;
   }
 
   #menuIcon > button {
@@ -119,8 +144,7 @@ a:hover {
 }
 
 @media screen and (max-width: 720px) {
-  .menu-icon.responsive {position: relative;}
-  .menu-icon.responsive .icon{
+  .responsive .icon{
     position: absolute;
     right: 0;
     top: 0;
@@ -130,5 +154,5 @@ a:hover {
     display: block;
     text-align: left;
   }
-}
+} */
 </style>

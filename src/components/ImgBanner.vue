@@ -31,6 +31,7 @@ export default {
   .text-shadow {
     text-shadow: 0 0 15px rgb(255,255,255);
   }
+
   @media screen and (max-width: 760px){
     #bannerImg{
       height: 100vh;

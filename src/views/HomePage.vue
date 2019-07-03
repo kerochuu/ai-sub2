@@ -74,7 +74,7 @@ export default {
 }
 
 #aboutMe{
-  font-size: 2.5vw;
+  font-size: 1.5vw;
 }
 
 </style>
