@@ -1,7 +1,9 @@
 <template>
   <v-toolbar fixed>
     <v-toolbar-title>
-      <router-link to="/" class="logo-text" style="text-decoration:none; color:#333">Home</router-link>
+      <router-link to="/" class="logo-text" style="text-decoration:none; color:#333">
+      Home
+      </router-link>
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
@@ -16,7 +18,10 @@
       <v-list class="hbmenu">
         <v-list-tile v-for="item in menu" :key="item.url">
           <v-list-tile-content>
-            <router-link class="link-text" :to="'/'+item.url">{{ item.title }}</router-link>
+            <router-link class="link-text" :to="'/'+item.url">
+              <v-icon size="25" class="mr-2">fa-{{ item.icon }}</v-icon>
+              {{ item.title }}
+            </router-link>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -25,6 +30,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Header",
   data() {
@@ -32,23 +38,28 @@ export default {
       menu: [
         {
           url: "",
-          title: "home"
+          title: "home",
+          icon: "home"
         },
         {
           url: "post",
-          title: "post"
+          title: "post",
+          icon: "email"
         },
         {
           url: "portfolio",
-          title: "portfolio"
+          title: "portfolio",
+          icon: "home"
         },
         {
           url: "login",
-          title: "login"
+          title: "login",
+          icon: "home"
         },
         {
           url: "PortfolioWrite",
-          title: "PortfolioWrite"
+          title: "PortfolioWrite",
+          icon: "home"
         }
       ]
     };
@@ -62,11 +73,10 @@ export default {
   min-height: 60px !important;
   max-height: 60px !important;
 }
-.link-text{
+.link-text {
   text-decoration: none;
   color: #333;
 }
-
 
 /* .header {
   background-color: #f0f0f0;
