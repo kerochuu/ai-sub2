@@ -4,8 +4,8 @@
     </v-img>
     <v-card-title primary-title>
       <div>
-        <div class="headline">{{title}}</div>
-        <span class="grey--text">{{body}}</span>
+        <div id="title" class="headline">{{title}}</div>
+        <span id="content" class="grey--text">{{body}}</span>
       </div>
     </v-card-title>
   </v-card>
@@ -27,3 +27,20 @@ export default {
 	}
 }
 </script>
+
+<style scoped>
+  #title {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+  }
+  #content {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
