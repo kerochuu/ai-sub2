@@ -80,7 +80,7 @@ export default {
     display: none;
   }
   #aboutMe{
-    font-size: 15px;
+    font-size: 20px;
   }
 }
 #introduce{
