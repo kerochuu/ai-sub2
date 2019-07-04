@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <Header />
+    <Scroll />
     <v-content id="content">
       <router-view />
     </v-content>
@@ -12,6 +13,7 @@
 import store from "./store";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Scroll from "./components/Scroll";
 
 if(!window.chrome){
   // firefox
@@ -34,7 +36,8 @@ export default {
   },
   components: {
     Header,
-    Footer
+    Footer,
+    Scroll
   }
 };
 </script>
