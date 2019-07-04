@@ -4,7 +4,7 @@
       <div style="line-height:1.2em;font-size:1.2em;" slot="text">Write your Portfolio</div>
     </ImgBanner>
 
-    <v-container>
+    <v-container class="mde">
       <v-layout>
         <v-flex sm-12 md-6>
           <markdown-editor v-model="content" ref="markdownEditor"></markdown-editor>
@@ -28,6 +28,9 @@ export default {
  
  
 <style scoped>
-  @import '~simplemde/dist/simplemde.min.css';
+.mde {
+  margin-top: 40px;
+}
+@import '~simplemde/dist/simplemde.min.css';
   
 </style>
