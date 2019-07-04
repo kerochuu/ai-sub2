@@ -45,12 +45,27 @@ export default {
 				.get()
 				.then((docSnapshots) => {
 					return docSnapshots.docs.map((doc) => {
-						let data = doc.data()
+            let data = doc.data()
+            data.pid=doc.id
 						data.created_at = new Date(data.created_at.toDate())
 						return data
 					})
 				})
-	},
+  },
+  getPortfolioById(id) {
+    const postsCollection = firestore.collection(PORTFOLIOS)
+    return postsCollection
+      .where(firebase.firestore.FieldPath.documentId(), '==', id)
+      .get()
+      .then((docSnapshots) => {
+        return docSnapshots.docs.map((doc) => {
+          let data = doc.data()
+          data.created_at = new Date(data.created_at.toDate())
+          data.id = doc.id
+          return data
+        })
+      })
+  },
 	postPortfolio(title, body, img) {
 		return firestore.collection(PORTFOLIOS).add({
 			title,

@@ -1,7 +1,7 @@
 <template>
   <v-card>
-    <v-img :src="imgSrc" height="200px">
-    </v-img>
+    <router-link :to="{name:'portfolioDetail', params: {pid} }"><v-img :src="imgSrc" height="200px"></v-img>
+    </router-link>
     <v-card-title primary-title>
       <div>
         <div id="title" class="headline">{{title}}</div>
@@ -18,7 +18,8 @@ export default {
 		date: {type: String},
 		title: {type: String},
 		body: {type: String},
-		imgSrc: {type: String},
+    imgSrc: {type: String},
+    pid: {type: String},
 	},
 	data() {
 		return {
