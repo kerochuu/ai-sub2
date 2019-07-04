@@ -2,7 +2,7 @@
   <div>
     <i class="fas fa-pencil-alt"></i>
     <ImgBanner imgSrc="https://picsum.photos/1080/1920">
-      <div style="line-height:1.2em;" slot="text">개발을 잘 하고 싶어요<br>~~</div>
+      <div id="introduce" style="line-height:1.2em;" slot="text">개발을 잘 하고 싶어요<br>~~</div>
     </ImgBanner>
     <v-container>
       <!-- About Me -->
@@ -67,14 +67,25 @@ export default {
 </script>
 
 <style scoped>
+
+
+@media screen and (max-width: 1904px){
+  #aboutMe{
+    font-size: 25px;
+  }
+}
+
 @media screen and (max-width: 760px){
   #profileImg{
     display: none;
   }
+  #aboutMe{
+    font-size: 15px;
+  }
 }
-
-#aboutMe{
-  font-size: 1.5vw;
+#introduce{
+  font-size: 45px;
+  font-weight: bold;
 }
 
 </style>
