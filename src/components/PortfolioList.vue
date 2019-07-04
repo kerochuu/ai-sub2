@@ -1,6 +1,6 @@
 <template>
   <v-layout mt-5 wrap>
-    <v-flex v-for="i in portfolios.length > limits ? limits : portfolios.length" xs4>
+    <v-flex sm6 md4 v-for="i in portfolios.length > limits ? limits : portfolios.length" xs4>
       <Portfolio class="ma-3"
               :date="portfolios[i - 1].created_at.toString()"
               :title="portfolios[i - 1].title"

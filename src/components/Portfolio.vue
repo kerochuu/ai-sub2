@@ -34,8 +34,8 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 200px;
-  }
+	max-width: 100%;
+ }
   #content {
     display: -webkit-box;
     -webkit-line-clamp: 3;
