@@ -12,7 +12,7 @@
           <p  class="mr-4 text-sm-center">안녕하세요, 서울 SSAFY 1기 이주원입니다.<br/>아보카도 좋아하세요?</p>
         </v-flex>
         <v-flex id="profileImg" md4>
-          <v-img :src="getImgUrl('profile.png')" aspect-ratio="1.5"/>
+          <v-img :src="getImgUrl('avocado.jpeg')" aspect-ratio="1.5"/>
         </v-flex>
       </v-layout>
 
