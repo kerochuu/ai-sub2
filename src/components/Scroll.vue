@@ -36,12 +36,14 @@ export default {
 button {
     position: fixed;
     right: 25px;
-    bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+    color :#f0f0f0;
+    font-weight: bolder;
+    bottom: 70px;
     z-index: 1;
     font-size: 20px;
-    font-weight: bold;
-    border: solid 1px #333;
-    background-color: #faacf1;
+    border: solid 2px rgba(74,115,55, 0.8);
+    background-color:	rgba(107,140,33, 0.8);
     border-radius: 10px;
     padding: 10px 20px;
 }

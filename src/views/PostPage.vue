@@ -8,7 +8,7 @@
       <!-- Post -->
       <v-layout>
         <v-flex sm12>
-          <PostList :limits="6" :load-more="true"></PostList>
+          <PostList :limits="3" :load-more="true"></PostList>
         </v-flex>
       </v-layout>
 

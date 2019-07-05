@@ -21,7 +21,7 @@
           <v-list-tile-content>
             <router-link class="link-text" :to="'/'+item.url">
               <font-awesome-icon icon="spinner"></font-awesome-icon>
-              <v-icon size="25" class="mr-2">fa-{{ item.icon }}</v-icon>
+              <v-icon id="icon" size="25" class="mr-2">fa-{{ item.icon }}</v-icon>
               {{ item.title }}
             </router-link>
           </v-list-tile-content>
@@ -66,16 +66,28 @@ export default {
 </script>
 
 <style scoped>
-.v-toolbar__content {
-  min-height: 60px !important;
-  max-height: 60px !important;
+.theme--light.v-toolbar{
+  background-color: rgb(182, 133, 90);
 }
+
 .link-text {
   text-decoration: none;
-  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  color: #604f3e	;
 }
 .hbmenu{
   font-weight: bold;
+  
 }
-
+#title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
+  color: #604f3e;
+}
+#icon {
+  color: #604f3e;
+}
 </style>

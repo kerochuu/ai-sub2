@@ -2,7 +2,7 @@
   <div>
     <v-img id="bannerImg" :src="imgSrc"
            aspect-ratio="1.7">
-      <v-layout align-center justify-center row fill-height>
+      <v-layout  align-center justify-center row fill-height>
         <v-flex text-xs-center>
           <span class="text-shadow display-2 font-weight-light">
             <slot name="text"/>
@@ -37,6 +37,31 @@ export default {
       height: 100vh;
     } 
   }
+  @media screen and(max-width: 1920px){
+    #bannerImg{
+      margin-top: 64px;
+    }
+  }
+  
+  @media screen and(max-width: 1920px){
+    #bannerImg{
+      margin-top: 64px;
+    }
+  }
+  @media screen and(max-width: 960px){
+    #bannerImg{
+      margin-top: 48px;
+    }
+  }
+   @media screen and(max-width: 600px){
+    #bannerImg{
+      margin-top: 64px;
+    }
+  }
+  
+  
+
+
 
 
 </style>

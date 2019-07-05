@@ -43,7 +43,7 @@ export default {
       console.log(this.portfolios)
 		},
 		loadMorePortfolios() {
-
+      this.limits += 2;
     }
 	},
 }

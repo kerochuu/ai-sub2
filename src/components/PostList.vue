@@ -39,7 +39,7 @@ export default {
 			this.posts = await FirebaseService.getPosts()
 		},
 		loadMorePosts() {
-
+			this.limits += 2;
     }
 	}
 }

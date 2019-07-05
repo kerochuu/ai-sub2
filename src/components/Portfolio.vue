@@ -35,7 +35,7 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-	max-width: 100%;
+	  max-width: 100%;
  }
   #content {
     display: -webkit-box;
