@@ -15,14 +15,14 @@
 >
 > ![postArrange](./src/assets/topbutton_post4x4_favicon.png)
 >
-> 
+>
 
 ## footer
 > 하단에 github, facebook page로 이동하는 아이콘 구현
 >
 > ![footer](./src/assets/footer_vuerouter.png)
 >
-> 
+>
 
 ## page 이동
 > post, portfolio, login, portfoliowrite
@@ -30,3 +30,6 @@
 >
 > ![detail](./src/assets/detailpage.png)
 
+### project 시작 전 설치  
+npm install  
+npm install vue
