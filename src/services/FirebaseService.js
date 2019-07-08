@@ -7,11 +7,11 @@ const PORTFOLIOS = 'portfolios'
 
 // Setup Firebase
 const config = {
-	projectId: 'elice-ssafy',
-	authDomain: 'elice-ssafy.firebaseapp.com',
-	apiKey: 'AIzaSyCax1KLYHHlLEoxNkRIW8efgUBWooyEB2Q',
-	databaseURL: 'https://elice-ssafy.firebaseio.com',
-	storageBucket: 'gs://elice-ssafy.appspot.com'
+	projectId: 'project2-460cc',
+	authDomain: 'project2-460cc.firebaseapp.com',
+	apiKey: 'AIzaSyDxvusphBrkA8H1AzbmyzkGAquWow9opKM',
+	databaseURL: 'https://project2-460cc.firebaseio.com',
+	storageBucket: 'gs://project2-460cc.appspot.com'
 }
 
 firebase.initializeApp(config)
