@@ -4,7 +4,7 @@ import HomePage from './views/HomePage.vue'
 import PostPage from './views/PostPage.vue'
 import PortfolioPage from './views/PortfolioPage.vue'
 import PortfolioWriterPage from './views/PortfolioWriterPage.vue'
-import LoginPage from './views/LoginPage.vue'
+import SignUpPage from './views/SignUpPage.vue'
 import PortfolioDetail from './views/PortfolioDetail.vue'
 
 Vue.use(Router)
@@ -29,11 +29,6 @@ export default new Router({
 			component: PortfolioPage
 		},
 		{
-			path: '/login',
-			name: 'login',
-			component: LoginPage
-		},
-		{
 			path:'/PortfolioWrite',
 			name:'PortfolioWrite',
 			component: PortfolioWriterPage
@@ -42,6 +37,11 @@ export default new Router({
 			path:'/portfolioDetail/:pid',
 			name: 'portfolioDetail',
 			component: PortfolioDetail
+		},
+		{
+			path: '/signup',
+			name: 'signup',
+			component: SignUpPage
 		}
 
   ]
