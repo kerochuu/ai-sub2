@@ -2,17 +2,18 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 
-const POSTS = 'posts'
-const PORTFOLIOS = 'portfolios'
+const POSTS = 'POSTS'
+const PORTFOLIOS = 'PORTFOLIOS'
 
 // Setup Firebase
 const config = {
-	projectId: 'elice-ssafy',
-	authDomain: 'elice-ssafy.firebaseapp.com',
-	apiKey: 'AIzaSyCax1KLYHHlLEoxNkRIW8efgUBWooyEB2Q',
-	databaseURL: 'https://elice-ssafy.firebaseio.com',
-	storageBucket: 'gs://elice-ssafy.appspot.com'
+	projectId: 'project2-460cc',
+	authDomain: 'project2-460cc.firebaseapp.com',
+	apiKey: 'AIzaSyDxvusphBrkA8H1AzbmyzkGAquWow9opKM',
+	databaseURL: 'https://project2-460cc.firebaseio.com',
+	storageBucket: 'gs://project2-460cc.appspot.com'
 }
+
 
 firebase.initializeApp(config)
 const firestore = firebase.firestore()
@@ -46,6 +47,7 @@ export default {
 				.then((docSnapshots) => {
 					return docSnapshots.docs.map((doc) => {
             let data = doc.data()
+
             data.pid=doc.id
 						data.created_at = new Date(data.created_at.toDate())
 						return data

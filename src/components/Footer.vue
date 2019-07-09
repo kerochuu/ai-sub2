@@ -1,18 +1,27 @@
 <template>
   <footer>
     <strong>zooo1's</strong>
+
+    <!-- 날씨 정보 -->
+    <weather></weather>
+
     <div id="snsIcon">
       <strong class="mr-3">contact</strong>
       <a href="https://github.com/zooo1"><v-icon size="30" class="mr-3">fa-github</v-icon></a>
       <router-link to="#"><v-icon size="30">fa-facebook-square</v-icon></router-link>
     </div>
-  
+
   </footer>
 </template>
 
 <script>
+import weather from '@/components/weather.vue'
+
 export default{
-  name: "Footer"
+  name: "Footer",
+  components:{
+    weather
+  }
 }
 </script>
 
