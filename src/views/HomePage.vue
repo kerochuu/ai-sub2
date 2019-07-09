@@ -40,6 +40,12 @@
           <RepositoryList></RepositoryList>
         </v-flex>
       </v-layout>
+
+      <v-layout>
+        <v-flex>
+          <ImageUpload></ImageUpload>
+        </v-flex>
+      </v-layout>
     </v-container>
   </div>
 </template>
@@ -49,6 +55,7 @@ import ImgBanner from '../components/ImgBanner'
 import PortfolioList from '../components/PortfolioList'
 import PostList from '../components/PostList'
 import RepositoryList from '../components/RepositoryList'
+import ImageUpload from '../components/ImageUpload'
 
 export default {
 	name: 'HomePage',
@@ -56,7 +63,8 @@ export default {
 		ImgBanner,
 		PortfolioList,
 		PostList,
-		RepositoryList
+    RepositoryList,
+    ImageUpload
 	},
 	methods: {
 		getImgUrl(img) {
