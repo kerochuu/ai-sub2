@@ -20,7 +20,6 @@
         <v-list-tile v-for="item in menu" :key="item.url">
           <v-list-tile-content>
             <router-link class="link-text" :to="'/'+item.url">
-              <font-awesome-icon icon="spinner"></font-awesome-icon>
               <v-icon id="icon" size="25" class="mr-2">fa-{{ item.icon }}</v-icon>
               {{ item.title }}
             </router-link>
