@@ -6,6 +6,7 @@ import PortfolioPage from './views/PortfolioPage.vue'
 import PortfolioWriterPage from './views/PortfolioWriterPage.vue'
 import SignUpPage from './views/SignUpPage.vue'
 import PortfolioDetail from './views/PortfolioDetail.vue'
+import PassPage from './views/PassPage.vue'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ export default new Router({
 			path: '/signup',
 			name: 'signup',
 			component: SignUpPage
+		},
+		{
+			path: '/pass',
+			name: 'pass',
+			component: PassPage
 		}
 
   ]

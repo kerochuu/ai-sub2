@@ -12,8 +12,11 @@
           <router-link class="link-text" :to="'/'+item.url">{{ item.title }}</router-link>
         </v-btn>
         <!-- Login Icon 분할 -->
-        <v-btn class="link-button" flat>
+        <v-btn class="link-button" v-if="!user" flat>
           <p class="link-text" v-on:click="showLogin">login</p>
+        </v-btn>
+        <v-btn class="link-button" v-if="user" flat>
+          <p class="link-text" v-on:click="logout">logout</p>
         </v-btn>
       </v-toolbar-items>
       <v-menu class="hidden-md-and-up">
@@ -30,9 +33,14 @@
             </v-list-tile-content>
           </v-list-tile>
           <!-- Login Icon 분할 -->
-          <v-list-tile-content>
+          <v-list-tile-content v-if="!user">
             <p class="link-text" v-on:click="showLogin">
               <v-icon id="icon" size="25" class="mr-2">fa-unlock</v-icon>login
+            </p>
+          </v-list-tile-content>
+          <v-list-tile-content v-if="user">
+            <p class="link-text" v-on:click="logout">
+              <v-icon id="icon" size="25" class="mr-2">fa-lock</v-icon>logout
             </p>
           </v-list-tile-content>
         </v-list>
@@ -44,6 +52,7 @@
 
 <script>
 import Modal from "./Modal";
+import FirebaseService from "../services/FirebaseService";
 
 export default {
   name: "Header",
@@ -75,7 +84,14 @@ export default {
   methods: {
     showLogin: function() {
       this.showmodal = !this.showmodal;
+    },
+    logout: function() {
+      FirebaseService.signout();
+      this.$router.push("/pass");
     }
+  },
+  props: {
+    user: { type: Object }
   }
 };
 </script>
