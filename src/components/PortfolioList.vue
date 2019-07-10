@@ -40,7 +40,6 @@ export default {
 	methods: {
 		async getPortfolios() {
       this.portfolios = await FirebaseService.getPortfolios()
-      console.log(this.portfolios)
 		},
 		loadMorePortfolios() {
       this.limits += 2;
