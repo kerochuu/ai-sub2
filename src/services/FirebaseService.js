@@ -2,8 +2,8 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 
-const POSTS = 'posts'
-const PORTFOLIOS = 'portfolios'
+const POSTS = 'POSTS'
+const PORTFOLIOS = 'PORTFOLIOS'
 
 // Setup Firebase
 const config = {
@@ -13,6 +13,7 @@ const config = {
 	databaseURL: 'https://project2-460cc.firebaseio.com',
 	storageBucket: 'gs://project2-460cc.appspot.com'
 }
+
 
 firebase.initializeApp(config)
 const firestore = firebase.firestore()
@@ -46,6 +47,7 @@ export default {
 				.then((docSnapshots) => {
 					return docSnapshots.docs.map((doc) => {
             let data = doc.data()
+
             data.pid=doc.id
 						data.created_at = new Date(data.created_at.toDate())
 						return data
