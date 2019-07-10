@@ -33,3 +33,5 @@
 ### project 시작 전 설치  
 npm install  
 npm install vue
+
+## Git branch에 관하여..
