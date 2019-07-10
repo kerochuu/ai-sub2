@@ -20,7 +20,7 @@
 <script>
 //날씨 api 추가. using openweathermap API
 var weatherApiId="eff5a88bc9e0ad23fa3b728424ed8adb";
-var city="granada"
+var city="SEOUL"
 var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+weatherApiId;
 
 export default{
@@ -66,8 +66,8 @@ export default{
   background-color: rgb(182, 133, 90);
 }
 li{
-  font-size: 9pt;
-  list-style: none;
+  font-size : 9pt;
+  list-style : none;
 }
 ul{
   float:left;
