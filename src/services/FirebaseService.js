@@ -53,21 +53,21 @@ export default {
 						return data
 					})
 				})
-  },
-  getPortfolioById(id) {
-    const postsCollection = firestore.collection(PORTFOLIOS)
-    return postsCollection
-      .where(firebase.firestore.FieldPath.documentId(), '==', id)
-      .get()
-      .then((docSnapshots) => {
-        return docSnapshots.docs.map((doc) => {
-          let data = doc.data()
-          data.created_at = new Date(data.created_at.toDate())
-          data.id = doc.id
-          return data
-        })
-      })
-  },
+	},
+	getPortfolioById(id) {
+		const postsCollection = firestore.collection(PORTFOLIOS)
+		return postsCollection
+		.where(firebase.firestore.FieldPath.documentId(), '==', id)
+		.get()
+		.then((docSnapshots) => {
+			return docSnapshots.docs.map((doc) => {
+			let data = doc.data()
+			data.created_at = new Date(data.created_at.toDate())
+			data.id = doc.id
+			return data
+			})
+		})
+	},
 	postPortfolio(title, body, img) {
 		return firestore.collection(PORTFOLIOS).add({
 			title,
@@ -95,5 +95,17 @@ export default {
 		}).catch(function(error){
 			console.error('[Facebook Login Error]',error);
 		})
+	},
+	signupInFirebase(email, password){
+		firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((user) => {
+			alert("회원가입이 완료되었습니다.")
+			window.location = "/"
+          	console.log(user)
+        })
+        .catch((error) => {
+			alert("회원가입에 실패하였습니다.")
+          	console.log(error)
+        })
 	}
 }
