@@ -48,11 +48,19 @@
         </v-flex>
       </v-layout>
 
+      <!-- image upload -->
       <v-layout>
         <v-flex>
           <ImageUpload></ImageUpload>
         </v-flex>
       </v-layout>
+
+      <!-- translate -->
+      <v-layout>
+        <v-flex>
+          <Translate></Translate>
+        </v-flex>
+        </v-layout>
     </v-container>
   </div>
 </template>
@@ -63,6 +71,7 @@ import PortfolioList from "../components/PortfolioList";
 import PostList from "../components/PostList";
 import RepositoryList from "../components/RepositoryList";
 import ImageUpload from "../components/ImageUpload";
+import Translate from "../components/Translate";
 
 export default {
   name: "HomePage",
@@ -78,7 +87,8 @@ export default {
     PortfolioList,
     PostList,
     RepositoryList,
-    ImageUpload
+    ImageUpload,
+    Translate
   },
   methods: {
     getImgUrl(img) {

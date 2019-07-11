@@ -6,15 +6,26 @@
 
 <script>
 export default {
-  name: 'Translate',
+  name: "Translate",
   methods: {
     googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        to: 'en'
-      }, "google_translate_element");
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: "en, ko",
+          includedLanguages: "ko,en",
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: true
+        },
+
+        "google_translate_element"
+      );
     }
   }
 };
 </script>
 
-
+<style>
+.goog-te-banner-frame{
+  display:none !important;
+}
+</style>
