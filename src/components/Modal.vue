@@ -63,20 +63,23 @@ export default {
       const result = await FirebaseService.loginWithGoogle();
       this.$store.state.accessToken = result.credential.accessToken;
       this.$store.state.user = result.user;
-      console.log(this.$store.state.accessToken);
-      console.log(this.$store.state.user);
+      this.$router.push("/pass");
+      this.$emit("update");
     },
     async loginWithFacebook() {
       const result = await FirebaseService.loginWithFacebook();
       this.$store.state.accessToken = result.credential.accessToken;
       this.$store.state.user = result.user;
-      console.log(this.$store.state.accessToken);
-      console.log(this.$store.state.user);
+      this.$router.push("/pass");
+      this.$emit("update");
     },
     login: async function() {
-      var data = await FirebaseService.signinFirebase(this.email, this.password)
-      if (data){
-        this.$router.push('/pass');
+      var data = await FirebaseService.signinFirebase(
+        this.email,
+        this.password
+      );
+      if (data) {
+        this.$router.push("/pass");
         this.$emit("update");
       }
     }
