@@ -30,8 +30,8 @@ export default new Router({
 			component: PortfolioPage
 		},
 		{
-			path:'/PortfolioWrite',
-			name:'PortfolioWrite',
+			path:'/portfoliowrite',
+			name:'portfoliowrite',
 			component: PortfolioWriterPage
 		},
 		{

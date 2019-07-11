@@ -5,7 +5,7 @@
         <img v-else-if = "weather == 'Clouds'" src="../assets/weatherIcon/cloud-sun.png"></img>
         <img v-else-if = "weather == 'Snow'" src="../assets/weatherIcon/cloud-snow.png"></img>
         <img v-else-if = "weather == 'Thunderstorm'" src="../assets/weatherIcon/cloud-lightning.png"></img>
-        <img v-else-if = "weather == 'Mist'" src="../assets/weatherIcon/cloud-fog-2.png"></img>
+        <img v-else-if = "weather == 'Mist' || weather == 'Haze'" src="../assets/weatherIcon/cloud-fog-2.png"></img>
         <img v-else-if = "weather == 'Clear'" src="../assets/weatherIcon/sun.png"></img>
       </ul>
       <ul>
