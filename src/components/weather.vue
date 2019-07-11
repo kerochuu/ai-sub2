@@ -1,18 +1,26 @@
 <template>
   <div id="weather" width="30%">
-    <v-list dense>지역 : {{city}}</v-list>
-    <v-list dense>날씨 : {{weather}}</v-list>
-    <v-list dense>습도 : {{humidity}}%</v-list>
-    <v-list dense>현재온도 : {{temp}}</v-list>
-    <v-list dense>최고온도 : {{temp_max}}</v-list>
-    <v-list dense>최저온도 : {{temp_min}}</v-list>
+      <ul>
+        <img v-if = "weather == 'Rain'" src="../assets/weatherIcon/cloud-rain.png"></img>
+        <img v-else-if = "weather == 'Clouds'" src="../assets/weatherIcon/cloud-sun.png"></img>
+        <img v-else-if = "weather == 'Snow'" src="../assets/weatherIcon/cloud-snow.png"></img>
+        <img v-else-if = "weather == 'Thunderstorm'" src="../assets/weatherIcon/cloud-lightning.png"></img>
+        <img v-else-if = "weather == 'Mist'" src="../assets/weatherIcon/cloud-fog-2.png"></img>
+        <img v-else-if = "weather == 'Clear'" src="../assets/weatherIcon/sun.png"></img>
+      </ul>
+      <ul>
+        <li>습도 : {{humidity}}</li>
+        <li>현재온도 : {{temp}}</li>
+        <li>최고온도 : {{temp_max}}</li>
+        <li>최저온도 : {{temp_min}}</li>
+      </ul>
   </div>
 </template>
 
 <script>
 //날씨 api 추가. using openweathermap API
 var weatherApiId="eff5a88bc9e0ad23fa3b728424ed8adb";
-var city="Seoul"
+var city="SEOUL"
 var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+weatherApiId;
 
 export default{
@@ -26,6 +34,7 @@ export default{
       temp : 0,
       temp_max : 0,
       temp_min : 0,
+      img_url : "",
     }
   },
   created(){
@@ -37,14 +46,13 @@ export default{
       throw new Error("Network response was not ok");
     })
     .then((json) => {
-      //console.log(json);
       this.city = json.name;
       this.weather = json.weather[0].main;
-      this.humidity = json.main.humidity;
-      this.pressure = json.main.pressure;
-      this.temp = (json.main.temp - 273.15).toFixed(2);
-      this.temp_max = (json.main.temp_max - 273.15).toFixed(2);
-      this.temp_min = (json.main.temp_min - 273.15).toFixed(2);
+      this.humidity = json.main.humidity + "%";
+      this.temp = (json.main.temp - 273.15).toFixed(1) + "°C";
+      this.temp_max = (json.main.temp_max - 273.15).toFixed(1) + "°C";
+      this.temp_min = (json.main.temp_min - 273.15).toFixed(1) + "°C";
+      console.log(json)
     })
     .catch((error) => {
       console.log(error);
@@ -54,6 +62,14 @@ export default{
 </script>
 <style>
 #weather{
-  font-size: 10pt;
+  z-index: 4;
+  background-color: rgb(182, 133, 90);
+}
+li{
+  font-size : 9pt;
+  list-style : none;
+}
+ul{
+  float:left;
 }
 </style>

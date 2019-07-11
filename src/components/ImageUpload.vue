@@ -18,7 +18,7 @@ export default {
     // file을 선택하면 그 파일의 정보를 가져와 image에 정보를 넣어줌
     onFileSelected(event) {
       this.image = event.target.files[0];
-  
+
       console.log("파일 선택 완료!",this.image);
     },
 
@@ -29,7 +29,7 @@ export default {
       form.append("image", this.image);
       console.log(form)
       console.log(form.has('image'))
-      // upload할 내용을 settings로 
+      // upload할 내용을 settings로
       var options = {
         method: "POST",
         headers: {
@@ -37,7 +37,7 @@ export default {
         },
         body: form
       };
-      
+
       fetch("https://api.imgur.com/3/image", options)
         .then(response => response.json())
         .then(result =>{
