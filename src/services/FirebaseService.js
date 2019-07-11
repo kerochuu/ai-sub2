@@ -18,19 +18,21 @@ const config = {
 firebase.initializeApp(config)
 const firestore = firebase.firestore()
 
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+
 export default {
 	getPosts() {
 		const postsCollection = firestore.collection(POSTS)
 		return postsCollection
-				.orderBy('created_at', 'desc')
-				.get()
-				.then((docSnapshots) => {
-					return docSnapshots.docs.map((doc) => {
-						let data = doc.data()
-						data.created_at = new Date(data.created_at.toDate())
-						return data
-					})
+			.orderBy('created_at', 'desc')
+			.get()
+			.then((docSnapshots) => {
+				return docSnapshots.docs.map((doc) => {
+					let data = doc.data()
+					data.created_at = new Date(data.created_at.toDate())
+					return data
 				})
+			})
 	},
 	postPost(title, body) {
 		return firestore.collection(POSTS).add({
@@ -42,31 +44,31 @@ export default {
 	getPortfolios() {
 		const postsCollection = firestore.collection(PORTFOLIOS)
 		return postsCollection
-				.orderBy('created_at', 'desc')
-				.get()
-				.then((docSnapshots) => {
-					return docSnapshots.docs.map((doc) => {
-            let data = doc.data()
+			.orderBy('created_at', 'desc')
+			.get()
+			.then((docSnapshots) => {
+				return docSnapshots.docs.map((doc) => {
+					let data = doc.data()
 
-            data.pid=doc.id
-						data.created_at = new Date(data.created_at.toDate())
-						return data
-					})
+					data.pid = doc.id
+					data.created_at = new Date(data.created_at.toDate())
+					return data
 				})
+			})
 	},
 	getPortfolioById(id) {
 		const postsCollection = firestore.collection(PORTFOLIOS)
 		return postsCollection
-		.where(firebase.firestore.FieldPath.documentId(), '==', id)
-		.get()
-		.then((docSnapshots) => {
-			return docSnapshots.docs.map((doc) => {
-			let data = doc.data()
-			data.created_at = new Date(data.created_at.toDate())
-			data.id = doc.id
-			return data
+			.where(firebase.firestore.FieldPath.documentId(), '==', id)
+			.get()
+			.then((docSnapshots) => {
+				return docSnapshots.docs.map((doc) => {
+					let data = doc.data()
+					data.created_at = new Date(data.created_at.toDate())
+					data.id = doc.id
+					return data
+				})
 			})
-		})
 	},
 	postPortfolio(title, body, img) {
 		return firestore.collection(PORTFOLIOS).add({
@@ -78,34 +80,44 @@ export default {
 	},
 	loginWithGoogle() {
 		let provider = new firebase.auth.GoogleAuthProvider()
-		return firebase.auth().signInWithPopup(provider).then(function(result) {
+		return firebase.auth().signInWithPopup(provider).then(function (result) {
 			let accessToken = result.credential.accessToken
 			let user = result.user
 			return result
-		}).catch(function(error) {
+		}).catch(function (error) {
 			console.error('[Google Login Error]', error)
 		})
 	},
-	loginWithFacebook(){
+	loginWithFacebook() {
 		let provider = new firebase.auth.FacebookAuthProvider();
-		return firebase.auth().signInWithPopup(provider).then(function(result){
+		return firebase.auth().signInWithPopup(provider).then(function (result) {
 			let accessToken = result.credential.accessToken;
 			let user = result.user
 			return result;
-		}).catch(function(error){
-			console.error('[Facebook Login Error]',error);
+		}).catch(function (error) {
+			console.error('[Facebook Login Error]', error);
 		})
 	},
-	signupInFirebase(email, password){
+	signupInFirebase(email, password) {
 		firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((user) => {
-			alert("회원가입이 완료되었습니다.")
-			window.location = "/"
-          	console.log(user)
-        })
-        .catch((error) => {
-			alert("회원가입에 실패하였습니다.")
-          	console.log(error)
-        })
+			.then((user) => {
+				alert("회원가입이 완료되었습니다.")
+				window.location = "/"
+				console.log(user)
+			})
+			.catch((error) => {
+				alert("회원가입에 실패하였습니다.")
+				console.log(error)
+			})
+	},
+	signout() {
+		firebase.auth().signOut()
+	},
+	signinFirebase(email, password) {
+		return firebase.auth().signInWithEmailAndPassword(email, password)
+	},
+	getUserInfo() {
+		const user = firebase.auth().currentUser
+		return user
 	}
 }
