@@ -4,6 +4,7 @@ import 'firebase/auth'
 
 const POSTS = 'POSTS'
 const PORTFOLIOS = 'PORTFOLIOS'
+const WEBVIEWS = 'WEBVIEWS'
 
 // Setup Firebase
 const config = {
@@ -120,15 +121,7 @@ export default {
 		const user = firebase.auth().currentUser
 		return user
 	},
-	postImage(imgLink) {
-		const user = firebase.auth().currentUser
 
-		return firestore.collection(POSTS).add({
-			title,
-			body,
-			created_at: firebase.firestore.FieldValue.serverTimestamp()
-		})
-	},
 	postImage(imgLink) {
 		const user = firebase.auth().currentUser
 		user.updateProfile({
@@ -137,4 +130,46 @@ export default {
 		this.$router.push('/pass')
 	},
 
+	addPageLog(id) {
+		const date = window.Date().slice(4, 15)
+		const time = window.Date()
+		let path = window.location.href
+		const datas = firestore.collection(WEBVIEWS).doc(date)
+		datas.get().then((doc) => {
+			if (doc.exists) {
+				if (doc.data()[time]) {
+					const temp = {}
+					const len = Object.keys(doc.data()[time]).length
+					const temp1 = {
+						path,
+						userId: id
+					}
+					const temp2 = doc.data()[time]
+					temp2[len] = temp1
+					temp[time] = temp2
+					datas.update(temp)
+				} else {
+					const temp = {}
+					const temp1 = {
+						path,
+						userId: id
+					}
+					const temp2 = {}
+					temp2[0] = temp1
+					temp[time] = temp2
+					datas.update(temp)
+				}
+			} else {
+				const temp = {}
+				const temp1 = {
+					path,
+					userId: id
+				}
+				const temp2 = {}
+				temp2[0] = temp1
+				temp[time] = temp2
+				datas.set(temp)
+			}
+		})
+	}
 }

@@ -13,24 +13,29 @@
     </v-container>
   </div>
 </template>
- 
+
 <script>
 import ImgBanner from "../components/ImgBanner";
 import markdownEditor from "vue-simplemde/src/markdown-editor";
 
 export default {
+  data(){
+    return{
+      content : ""
+    }
+  },
   components: {
     ImgBanner,
     markdownEditor
   }
 };
 </script>
- 
- 
+
+
 <style scoped>
 .mde {
   margin-top: 40px;
 }
 @import '~simplemde/dist/simplemde.min.css';
-  
+
 </style>
