@@ -27,7 +27,7 @@ export default {
 		Repository
 	},
 	mounted() {
-		this.getGitlabRepos('hackurity01')
+		this.getGitlabRepos('zooo1')
 	},
 	methods: {
 		async getGitlabRepos(userName) {
