@@ -10,6 +10,7 @@ export default {
   methods: {
     googleTranslateElementInit() {
       new google.translate.TranslateElement({
+        to: 'en'
       }, "google_translate_element");
     }
   }
