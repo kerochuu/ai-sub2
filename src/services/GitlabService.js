@@ -1,6 +1,6 @@
 import Api from '@/services/Api'
 
-const BASE_URL = 'https://gitlab.com/api/v4'
+const BASE_URL = 'https://lab.ssafy.com/api/v4'
 
 export default {
 	getRepos(userName) {
@@ -10,6 +10,6 @@ export default {
 		let d = new Date()
 		d.setMonth(d.getMonth() - 1)
 
-		return Api(BASE_URL).get(`/projects/${fullName}/repository/commits?since=${d.toISOString()}`)
+		return Api(BASE_URL).get(`/projects/${fullName}/repository/commits`)
 	}
 }
