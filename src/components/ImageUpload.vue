@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import FirebaseService from '@/services/FirebaseService'
+
 export default {
   name: "ImageUpload",
   data() {
@@ -18,18 +20,13 @@ export default {
     // file을 선택하면 그 파일의 정보를 가져와 image에 정보를 넣어줌
     onFileSelected(event) {
       this.image = event.target.files[0];
-
-      console.log("파일 선택 완료!",this.image);
     },
 
     onUpload() {
-      console.log("이미지 업로드를 시작해보자");
       var form = new FormData();
-      console.log(this.image)
       form.append("image", this.image);
-      console.log(form)
-      console.log(form.has('image'))
-      // upload할 내용을 settings로
+
+      // upload할 내용을 options에 
       var options = {
         method: "POST",
         headers: {
@@ -43,15 +40,20 @@ export default {
         .then(result =>{
           if(result.success){
             this.link = result.data.link;
-            console.log(this.link)
-
+            FirebaseService.postImage(this.link);
+            // postImage(this.link);
           }
           else{
-            console.log("ERROR!!")
+            console.log(result)
+            alert("ERROR!!")
           }
+        })
+        .catch(err => {
+          console.log(err)
         });
 
-    }
+    },
+
   }
 };
 </script>

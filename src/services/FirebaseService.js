@@ -119,5 +119,22 @@ export default {
 	getUserInfo() {
 		const user = firebase.auth().currentUser
 		return user
-	}
+	},
+	postImage(imgLink) {
+		const user = firebase.auth().currentUser
+
+		return firestore.collection(POSTS).add({
+			title,
+			body,
+			created_at: firebase.firestore.FieldValue.serverTimestamp()
+		})
+	},
+	postImage(imgLink) {
+		const user = firebase.auth().currentUser
+		user.updateProfile({
+			photoURL: imgLink
+		})
+		this.$router.push('/pass')
+	},
+
 }

@@ -1,18 +1,26 @@
 <template>
   <div>
     <i class="fas fa-pencil-alt"></i>
-    <ImgBanner imgSrc="https://picsum.photos/1080/1920">
-      <div id="introduce" style="line-height:1.2em; color:gold;" slot="text">Do u love Avocado?<br>Do u love Avocado?</div>
-    </ImgBanner>
+    <div v-on:click="changeBannerImg">
+      <ImgBanner v-bind:imgSrc="img">
+        <div id="introduce" style="line-height:1.2em; color:gold;" slot="text">
+          Do u love Avocado?
+          <br />Do u love Avocado?
+        </div>
+      </ImgBanner>
+    </div>
     <v-container>
       <!-- About Me -->
-      <v-layout  my-5>
+      <v-layout my-5>
         <v-flex id="aboutMe" sm12>
           <h2 class="headline mb-3 text-sm-center">About Me</h2>
-          <p  class="mr-4 text-sm-center">안녕하세요, 서울 SSAFY 1기 이주원입니다.<br/>아보카도 좋아하세요?</p>
+          <p class="mr-4 text-sm-center">
+            안녕하세요, 서울 SSAFY 1기 이주원입니다.
+            <br />아보카도 좋아하세요?
+          </p>
         </v-flex>
         <v-flex id="profileImg" md4>
-          <v-img :src="getImgUrl('avocado.jpeg')" aspect-ratio="1.5"/>
+          <v-img :src="getImgUrl('avocado.jpeg')" aspect-ratio="1.5" />
         </v-flex>
       </v-layout>
 
@@ -32,7 +40,6 @@
         </v-flex>
       </v-layout>
 
-
       <!-- Github -->
       <v-layout my-5>
         <v-flex xs12>
@@ -41,72 +48,73 @@
         </v-flex>
       </v-layout>
 
-      <!-- Image Upload -->
       <v-layout>
         <v-flex>
           <ImageUpload></ImageUpload>
         </v-flex>
       </v-layout>
-
-      <!-- google translate -->
-      <v-layout>
-        <v-flex>
-          <Translate></Translate>
-        </v-flex>
-      </v-layout>
-      
     </v-container>
   </div>
 </template>
 
 <script>
-import ImgBanner from '../components/ImgBanner'
-import PortfolioList from '../components/PortfolioList'
-import PostList from '../components/PostList'
-import RepositoryList from '../components/RepositoryList'
-import ImageUpload from '../components/ImageUpload'
-import Translate from '../components/Translate'
+import ImgBanner from "../components/ImgBanner";
+import PortfolioList from "../components/PortfolioList";
+import PostList from "../components/PostList";
+import RepositoryList from "../components/RepositoryList";
+import ImageUpload from "../components/ImageUpload";
 
 export default {
-	name: 'HomePage',
-	components: {
-		ImgBanner,
-		PortfolioList,
-		PostList,
+  name: "HomePage",
+  data() {
+    return {
+      showPhoto: false,
+      randomImg: "https://picsum.photos/1080/1920",
+      img: "https://picsum.photos/1080/1920"
+    };
+  },
+  components: {
+    ImgBanner,
+    PortfolioList,
+    PostList,
     RepositoryList,
-    ImageUpload,
-    Translate
-	},
-	methods: {
-		getImgUrl(img) {
-			return require('../assets/' + img)
-		}
-	},
-}
+    ImageUpload
+  },
+  methods: {
+    getImgUrl(img) {
+      return require("../assets/" + img);
+    },
+    changeBannerImg() {
+      this.showPhoto = !this.showPhoto;
+      if (this.showPhoto && this.user.photoURL) {
+        this.img = this.user.photoURL;
+      } else {
+        this.img = this.randomImg;
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
-
-
-@media screen and (max-width: 1904px){
-  #aboutMe{
+@media screen and (max-width: 1904px) {
+  #aboutMe {
     font-size: 25px;
   }
 }
 
-@media screen and (max-width: 760px){
-  #profileImg{
+@media screen and (max-width: 760px) {
+  #profileImg {
     display: none;
   }
-  #aboutMe{
+  #aboutMe {
     font-size: 20px;
   }
 }
-#introduce{
+#introduce {
   font-size: 45px;
   font-weight: bold;
   color: black;
   opacity: 1;
 }
-
 </style>
