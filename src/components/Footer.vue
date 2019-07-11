@@ -1,17 +1,16 @@
 <template>
+  <div>
   <footer>
-    <strong>zooo1's</strong>
-
-    <!-- 날씨 정보 -->
-    <weather></weather>
-
+    <strong>@이주원과아이들 - 2019</strong>
     <div id="snsIcon">
-      <strong class="mr-3">contact</strong>
-      <a href="https://github.com/zooo1"><v-icon size="30" class="mr-3">fa-github</v-icon></a>
+      <strong class="mr-3">Contact Us</strong>
+      <a href="https://lab.ssafy.com/zooo1/webmobile-sub2/"><v-icon size="30" class="mr-3">fa-github</v-icon></a>
       <router-link to="#"><v-icon size="30">fa-facebook-square</v-icon></router-link>
     </div>
-
   </footer>
+  <!-- 날씨 정보 -->
+  <weather></weather>
+</div>
 </template>
 
 <script>
@@ -26,9 +25,10 @@ export default{
 </script>
 
 <style scoped>
+div{
+    background-color: rgb(182, 133, 90);
+}
 footer{
-  background-color: rgb(182, 133, 90);
-  height: 50px;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -43,7 +43,7 @@ strong{
 }
 #snsIcon{
   color: #333;
-  float: right;
+  float:right;
 }
 
 </style>
