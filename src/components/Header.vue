@@ -1,50 +1,46 @@
 <template>
-  <div>
+  <div style="z-index:3">
     <v-toolbar fixed>
-      <v-toolbar-title id="title">
-        <router-link to="/" class="logo-text" style="text-decoration:none; color:#333">
-          <v-icon size="25" class="mr-2">fa-home</v-icon>Home
-        </router-link>
-      </v-toolbar-title>
+
+      <v-icon @click="moveHome">home</v-icon>
+
+      <v-toolbar-title id="title">TEAM.AVOCADO</v-toolbar-title>
+
       <v-spacer></v-spacer>
+
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn v-for="item in menu" :key="item.url" class="link-button" flat>
-          <router-link class="link-text" :to="'/'+item.url">{{ item.title }}</router-link>
+        <v-btn @click="movePost" flat>
+          <div class="link-text">POST</div>
         </v-btn>
-        <!-- Login Icon 분할 -->
-        <v-btn class="link-button" v-if="!user" flat>
-          <p class="link-text" v-on:click="showLogin">login</p>
+        <v-btn @click="movePortfolio" flat>
+          <div class="link-text">PORTFOLIO</div>
         </v-btn>
-        <v-btn class="link-button" v-if="user" flat>
-          <p class="link-text" v-on:click="logout">logout</p>
+        <v-btn @click="movePortfolioWriter" flat>
+          <div class="link-text">PORTFOLIOWRITE</div>
+        </v-btn>
+        <v-btn class="link-button" @click="showLogin" v-if="!user" flat>
+          <div class="link-text">login</div>
+        </v-btn>
+        <v-btn class="link-button" @click="logout" v-if="user" flat>
+          <div class="link-text">logout</div>
         </v-btn>
       </v-toolbar-items>
+
+      <!-- 모바일 화면 메뉴 -->
       <v-menu class="hidden-md-and-up">
         <v-toolbar-side-icon slot="activator">
           <v-icon>apps</v-icon>
         </v-toolbar-side-icon>
+
         <v-list class="hbmenu">
-          <v-list-tile v-for="item in menu" :key="item.url">
-            <v-list-tile-content>
-              <router-link class="link-text" :to="'/'+item.url">
-                <v-icon id="icon" size="25" class="mr-2">fa-{{ item.icon }}</v-icon>
-                {{ item.title }}
-              </router-link>
-            </v-list-tile-content>
-          </v-list-tile>
-          <!-- Login Icon 분할 -->
-          <v-list-tile-content v-if="!user">
-            <p class="link-text" v-on:click="showLogin">
-              <v-icon id="icon" size="25" class="mr-2">fa-unlock</v-icon>login
-            </p>
-          </v-list-tile-content>
-          <v-list-tile-content v-if="user">
-            <p class="link-text" v-on:click="logout">
-              <v-icon id="icon" size="25" class="mr-2">fa-lock</v-icon>logout
-            </p>
-          </v-list-tile-content>
+          <v-list-tile @click="movePost" ><v-icon size="25" class="mr-2 icon">fa-envelope</v-icon> POST </v-list-tile>
+          <v-list-tile  @click="movePortfolio"> <v-icon size="25" class="mr-2 icon">fa-folder-open</v-icon> PORTFOLIO </v-list-tile>
+          <v-list-tile  @click="movePortfolioWriter"> <v-icon size="25" class="mr-2 icon">fa-pencil</v-icon> PORTFOLIOWRITE </v-list-tile>
+          <v-list-tile v-if="!user" @click="showLogin"> <v-icon size="25" class="mr-2 icon">fa-unlock</v-icon> LOGIN </v-list-tile>
+          <v-list-tile v-if="user"  @click="logout"> <v-icon size="25" class="mr-2 icon">fa-lock</v-icon> LOGOUT </v-list-tile>
         </v-list>
       </v-menu>
+
     </v-toolbar>
     <Modal v-if="showmodal" v-on:update="showLogin"></Modal>
   </div>
@@ -62,23 +58,6 @@ export default {
   data() {
     return {
       showmodal: false,
-      menu: [
-        {
-          url: "post",
-          title: "post",
-          icon: "envelope"
-        },
-        {
-          url: "portfolio",
-          title: "portfolio",
-          icon: "folder-open"
-        },
-        {
-          url: "PortfolioWrite",
-          title: "PortfolioWrite",
-          icon: "pencil"
-        }
-      ]
     };
   },
   methods: {
@@ -88,7 +67,20 @@ export default {
     logout: function() {
       FirebaseService.signout();
       this.$router.push("/pass");
-    }
+    },
+    moveHome(){
+      this.$router.push('/');
+    },
+    movePost(){
+      this.$router.push('/post');
+    },
+    movePortfolio(){
+      this.$router.push('/portfolio');
+    },
+    movePortfolioWriter(){
+      this.$router.push('/portfoliowrite');
+    },
+
   },
   props: {
     user: { type: Object }
@@ -117,7 +109,7 @@ export default {
   font-size: 23px;
   color: #604f3e;
 }
-#icon {
+.icon {
   color: #604f3e;
 }
 </style>
