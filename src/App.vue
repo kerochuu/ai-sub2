@@ -16,19 +16,15 @@ import Footer from "./components/Footer";
 import Scroll from "./components/Scroll";
 import FirebaseService from "./services/FirebaseService";
 
-if (!window.chrome) {
-  // firefox
+if (
+  !window.chrome ||
+  navigator.userAgent.indexOf("Edge") !== -1 ||
+  navigator.userAgent.indexOf("OPR") !== -1 ||
+  navigator.userAgent.indexOf("Version") !== -1
+) {
   alert("이 사이트는 크롬에 최적화 되어 있읍니다. 크롬을 깔아주세욥");
 } else {
-  if (
-    navigator.userAgent.indexOf("Edge") !== -1 ||
-    navigator.userAgent.indexOf("OPR") !== -1 ||
-    navigator.userAgent.indexOf("Version") !== -1
-  ) {
-    alert("이 사이트는 크롬에 최적화 되어 있읍니다. 크롬을 깔아주세욥");
-  } else {
-    console.log("크롬임");
-  }
+  console.log("크롬임");
 }
 
 export default {
@@ -36,7 +32,7 @@ export default {
   store,
   data() {
     return {
-      user: null
+      user: ""
     };
   },
   components: {
@@ -44,9 +40,20 @@ export default {
     Footer,
     Scroll
   },
+  mounted() {
+    FirebaseService.signout();
+    FirebaseService.addPageLog(null);
+    this.$router.push("/pass");
+  },
   watch: {
     $route() {
       this.user = FirebaseService.getUserInfo();
+      if (this.user) {
+        var id = this.user.uid;
+      } else {
+        var id = "unauthenticated";
+      }
+      FirebaseService.addPageLog(id);
     }
   }
 };
