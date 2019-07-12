@@ -127,10 +127,6 @@ export default {
 		user.updateProfile({
 			photoURL: imgLink
 		})
-<<<<<<< HEAD
-		// this.$router.push('/pass')
-=======
->>>>>>> origin/tyki
 	},
 
 	addPageLog(id) {

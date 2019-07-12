@@ -19,7 +19,7 @@ import FirebaseService from "./services/FirebaseService";
 
 if (!window.chrome || navigator.userAgent.indexOf("Edge") !== -1 || navigator.userAgent.indexOf("OPR") !== -1 || navigator.userAgent.indexOf("Version") !== -1) {
   alert("이 사이트는 크롬에 최적화 되어 있읍니다. 크롬을 깔아주세욥");
-
+}
 
 export default {
   name: "App",

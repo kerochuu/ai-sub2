@@ -41,6 +41,7 @@ export default {
           if(result.success){
             this.link = result.data.link;
             FirebaseService.postImage(this.link);
+            alert("파일이 성공적으로 업로드 되었습니다.");
             this.$router.push('/pass')
           }
           else{
