@@ -4,8 +4,7 @@
     <div v-on:click="changeBannerImg">
       <ImgBanner v-bind:imgSrc="img">
         <div id="introduce" style="line-height:1.2em; color:gold;" slot="text">
-          Do u love Avocado?
-          <br />Do u love Avocado?
+          Do u love Avocado?<br />Do u love Avocado?
         </div>
       </ImgBanner>
     </div>
@@ -102,7 +101,8 @@ export default {
         this.img = this.randomImg;
       }
     }
-  }
+  },
+  props: ['user']
 };
 </script>
 

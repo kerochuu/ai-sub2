@@ -11,9 +11,9 @@
         <div class="modal-body">
           <slot name="body">
             <h4>이메일</h4>
-            <input v-model="email" type="email" />
+            <input v-model="email" type="email" @keyup.enter="login" />
             <h4>비밀번호</h4>
-            <input v-model="password" type="password" />
+            <input v-model="password" type="password" @keyup.enter="login" />
             <div>
               <button @click="login">Login</button>
             </div>
