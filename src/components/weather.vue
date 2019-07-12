@@ -1,12 +1,24 @@
 <template>
   <div id="weather" width="30%">
       <ul>
-        <img v-if = "weather == 'Rain'" src="../assets/weatherIcon/cloud-rain.png"></img>
-        <img v-else-if = "weather == 'Clouds'" src="../assets/weatherIcon/cloud-sun.png"></img>
-        <img v-else-if = "weather == 'Snow'" src="../assets/weatherIcon/cloud-snow.png"></img>
-        <img v-else-if = "weather == 'Thunderstorm'" src="../assets/weatherIcon/cloud-lightning.png"></img>
-        <img v-else-if = "weather == 'Mist' || weather == 'Haze'" src="../assets/weatherIcon/cloud-fog-2.png"></img>
-        <img v-else-if = "weather == 'Clear'" src="../assets/weatherIcon/sun.png"></img>
+        <img v-if = "weather == 'Rain'"
+          src="../assets/weatherIcon/cloud-rain.png">
+        </img>
+        <img v-else-if = "weather == 'Clouds'"
+          src="../assets/weatherIcon/cloud-sun.png">
+        </img>
+        <img v-else-if = "weather == 'Snow'"
+          src="../assets/weatherIcon/cloud-snow.png">
+        </img>
+        <img v-else-if = "weather == 'Thunderstorm'"
+          src="../assets/weatherIcon/cloud-lightning.png">
+        </img>
+        <img v-else-if = "weather == 'Mist' || weather == 'Haze'"
+          src="../assets/weatherIcon/cloud-fog-2.png">
+        </img>
+        <img v-else-if = "weather == 'Clear'"
+          src="../assets/weatherIcon/sun.png">
+        </img>
       </ul>
       <ul>
         <li>습도 : {{humidity}}</li>
