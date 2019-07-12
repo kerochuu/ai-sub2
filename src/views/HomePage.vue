@@ -102,7 +102,8 @@ export default {
         this.img = this.randomImg;
       }
     }
-  }
+  },
+  props: ['user']
 };
 </script>
 
