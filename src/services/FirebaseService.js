@@ -127,7 +127,7 @@ export default {
 		user.updateProfile({
 			photoURL: imgLink
 		})
-		this.$router.push('/pass')
+		// this.$router.push('/pass')
 	},
 
 	addPageLog(id) {
