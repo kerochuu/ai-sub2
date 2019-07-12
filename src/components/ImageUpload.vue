@@ -42,6 +42,8 @@ export default {
             this.link = result.data.link;
             FirebaseService.postImage(this.link);
             // postImage(this.link);
+            alert("사진이 례쁘게 올라갔읍")
+            this.$router.push('/pass')
           }
           else{
             console.log(result)
