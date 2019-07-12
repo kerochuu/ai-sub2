@@ -41,7 +41,7 @@ export default {
           if(result.success){
             this.link = result.data.link;
             FirebaseService.postImage(this.link);
-            // postImage(this.link);
+            this.$router.push('/pass')
           }
           else{
             console.log(result)
