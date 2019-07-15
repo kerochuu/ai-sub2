@@ -47,13 +47,6 @@
         </v-flex>
       </v-layout>
 
-      <!-- image upload -->
-      <v-layout>
-        <v-flex>
-          <ImageUpload></ImageUpload>
-        </v-flex>
-      </v-layout>
-
       <!-- translate -->
       <v-layout>
         <v-flex>
