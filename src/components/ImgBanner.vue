@@ -42,12 +42,7 @@ export default {
       margin-top: 64px;
     }
   }
-  
-  @media screen and(max-width: 1920px){
-    #bannerImg{
-      margin-top: 64px;
-    }
-  }
+
   @media screen and(max-width: 960px){
     #bannerImg{
       margin-top: 48px;
