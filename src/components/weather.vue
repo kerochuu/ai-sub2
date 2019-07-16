@@ -39,14 +39,14 @@ export default{
   name: "weather",
   data (){
     return{
-      city : "",
+      //city : "",
       weather : "",
       humidity : "",
-      pressure : "",
+      //pressure : "",
       temp : 0,
       temp_max : 0,
       temp_min : 0,
-      img_url : "",
+      //img_url : "",
     }
   },
   created(){
@@ -58,7 +58,7 @@ export default{
       throw new Error("Network response was not ok");
     })
     .then((json) => {
-      this.city = json.name;
+      //this.city = json.name;
       this.weather = json.weather[0].main;
       this.humidity = json.main.humidity + "%";
       this.temp = (json.main.temp - 273.15).toFixed(1) + "°C";
