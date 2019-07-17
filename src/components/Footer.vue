@@ -1,7 +1,7 @@
 <template>
   <div>
   <footer>
-    <strong>@이주원과아이들 - 2019</strong>
+    <strong>@이주원과아이들 - 2019.07.08</strong>
     <div id="snsIcon">
       <strong class="mr-3">Contact Us</strong>
       <a href="https://lab.ssafy.com/zooo1/webmobile-sub2/"><v-icon size="30" class="mr-3">fa-github</v-icon></a>
