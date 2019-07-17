@@ -2,7 +2,7 @@
 
     <v-layout>
         <v-flex>
-            <label>포스터 이미지
+            <label>
                 <input outline type="file" id="file" ref="file" @change="handleFileUpload()"/>
             </label>
             <v-btn v-on:click="randomImageUpload()">

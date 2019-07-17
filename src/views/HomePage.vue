@@ -1,43 +1,29 @@
 <template>
   <div>
     <i class="fas fa-pencil-alt"></i>
-    <div v-on:click="changeBannerImg">
-      <ImgBanner v-bind:imgSrc="img">
-        <div id="introduce" style="line-height:1.2em; color:gold;" slot="text">
-          Do u love Avocado?<br />Do u love Avocado?
-        </div>
+    <!-- <div v-on:click="changeBannerImg"> -->
+      <!-- <ImgBanner v-bind:imgSrc="img"> -->
+      <ImgBanner> 
+        <!-- <div id="introduce" style="line-height:1.2em; " slot="t  ext">TEAM AVOCADO</div> -->
       </ImgBanner>
-    </div>
-    <v-container>
-      <!-- About Me -->
-      <v-layout my-5>
-        <v-flex id="aboutMe" sm12>
-          <h2 class="headline mb-3 text-sm-center">About Me</h2>
-          <p class="mr-4 text-sm-center">
-            안녕하세요, 서울 SSAFY 1기 이주원입니다.
-            <br />아보카도 좋아하세요?
-          </p>
-        </v-flex>
-        <v-flex id="profileImg" md4>
-          <v-img :src="getImgUrl('avocado.jpeg')" aspect-ratio="1.5" />
-        </v-flex>
-      </v-layout>
+    <!-- </div> -->
 
+    <v-container>
       <!-- Portfolio -->
       <v-layout my-5>
         <v-flex xs12>
-          <h2 class="headline my-5 text-xs-center">Portfolio</h2>
+          <h2 class="headline my-5 text-xs-center">About us</h2>
           <PortfolioList></PortfolioList>
         </v-flex>
       </v-layout>
 
       <!-- Post -->
-      <v-layout my-5>
+      <!-- <v-layout my-5>
         <v-flex xs12>
           <h2 class="headline my-5 text-xs-center">Post</h2>
           <PostList :column="1"></PostList>
         </v-flex>
-      </v-layout>
+      </v-layout> -->
 
       <!-- Github -->
       <v-layout my-5>
@@ -48,11 +34,11 @@
       </v-layout>
 
       <!-- translate -->
-      <v-layout>
+      <!-- <v-layout>
         <v-flex>
           <Translate></Translate>
         </v-flex>
-        </v-layout>
+      </v-layout> -->
     </v-container>
   </div>
 </template>
@@ -83,23 +69,27 @@ export default {
     Translate
   },
   methods: {
-    getImgUrl(img) {
-      return require("../assets/" + img);
-    },
-    changeBannerImg() {
-      this.showPhoto = !this.showPhoto;
-      if (this.showPhoto && this.user.photoURL) {
-        this.img = this.user.photoURL;
-      } else {
-        this.img = this.randomImg;
-      }
-    }
+    // getImgUrl(img) {
+    //   return require("../assets/" + img);
+    // },
+    // changeBannerImg() {
+    //   this.showPhoto = !this.showPhoto;
+    //   if (this.showPhoto && this.user.photoURL) {
+    //     this.img = this.user.photoURL;
+    //   } else {
+    //     this.img = this.randomImg;
+    //   }
+    // }
   },
-  props: ['user']
+  props: ["user"]
 };
 </script>
 
 <style scoped>
+h2 {
+  font-size: 3rem;
+}
+
 @media screen and (max-width: 1904px) {
   #aboutMe {
     font-size: 25px;
@@ -107,9 +97,6 @@ export default {
 }
 
 @media screen and (max-width: 760px) {
-  #profileImg {
-    display: none;
-  }
   #aboutMe {
     font-size: 20px;
   }
@@ -117,7 +104,7 @@ export default {
 #introduce {
   font-size: 45px;
   font-weight: bold;
-  color: black;
-  opacity: 1;
+  color: #f0f0f0;
+  /* opacity: 1; */
 }
 </style>

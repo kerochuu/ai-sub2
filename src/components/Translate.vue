@@ -25,7 +25,10 @@ export default {
 </script>
 
 <style>
-.goog-te-banner-frame{
-  display:none !important;
+#google_translate_element {
+  border: 2px solid red;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color:#f0f0f0;
 }
 </style>

@@ -75,13 +75,14 @@ export default{
 <style>
 #weather{
   z-index: 4;
-  background-color: rgb(182, 133, 90);
+  /* background-color: rgb(182, 133, 90); */
 }
 li{
   font-size : 9pt;
   list-style : none;
 }
 ul{
+  color: #f0f0f0;
   float:left;
 }
 </style>
