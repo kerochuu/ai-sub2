@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button id="google_translate_element" v-on:click="googleTranslateElementInit">Translate!</button>
+    <button color="#E5A388" id="google_translate_element" v-on:click="googleTranslateElementInit">Translate!</button>
   </div>
 </template>
 
@@ -27,5 +27,15 @@ export default {
 <style>
 .goog-te-banner-frame{
   display:none !important;
+}
+#google_translate_element {
+  font-weight: bold;
+  border-radius: 5px;
+  border: 5px solid #E5A388;
+  padding: 5px;
+  background-color: #E7A98E;
+  font-weight: bold;
+  font-size:1.2rem;
+  color: #333;
 }
 </style>

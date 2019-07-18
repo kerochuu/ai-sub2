@@ -1,27 +1,36 @@
 <template>
   <div>
     <i class="fas fa-pencil-alt"></i>
-    <div v-on:click="changeBannerImg">
-      <ImgBanner v-bind:imgSrc="img">
-        <div id="introduce" style="line-height:1.2em; color:gold;" slot="text">
-          Do u love Avocado?<br />Do u love Avocado?
+    <!-- <div v-on:click="changeBannerImg"> -->
+      <!-- <ImgBanner v-bind:imgSrc="img"> -->
+      <ImgBanner>
+        <div id="introduce" style="line-height:1.2em; color:#333;" slot="text">
+          Do u love Avocado?<br/>Do u love Avocado?
         </div>
       </ImgBanner>
-    </div>
-    <v-container>
-      <!-- About Me -->
-      <v-layout my-5>
-        <v-flex id="aboutMe" sm12>
-          <h2 class="headline mb-3 text-sm-center">About Me</h2>
+    <!-- </div> -->
+
+    <!-- <v-container> -->
+      <!-- About Us -->
+      <div id="aboutUsbox">
+        <div id="aboutUs">
+          <h2 class="headline mb-3 text-xs-center">About US</h2>
+          <p class="mr-4 text-sm-center">
+            안녕하세요, 서울 SSAFY 1기 이주원입니다.
+            <br />아보카도 좋아하세요?
+          </p>
+        </div>
+      
+      </div>
+      <!-- <v-layout my-5>
+        <v-flex id="aboutUs" sm12>
+          <h2 class="headline mb-3 text-xs-center">About US</h2>
           <p class="mr-4 text-sm-center">
             안녕하세요, 서울 SSAFY 1기 이주원입니다.
             <br />아보카도 좋아하세요?
           </p>
         </v-flex>
-        <v-flex id="profileImg" md4>
-          <v-img :src="getImgUrl('avocado.jpeg')" aspect-ratio="1.5" />
-        </v-flex>
-      </v-layout>
+      </v-layout> -->
 
       <!-- Portfolio -->
       <v-layout my-5>
@@ -32,12 +41,12 @@
       </v-layout>
 
       <!-- Post -->
-      <v-layout my-5>
-        <v-flex xs12>
-          <h2 class="headline my-5 text-xs-center">Post</h2>
-          <PostList :column="1"></PostList>
-        </v-flex>
-      </v-layout>
+        <!-- <v-layout my-5>
+          <v-flex xs12>
+            <h2 class="headline my-5 text-xs-center">Post</h2>
+            <PostList :column="1"></PostList>
+          </v-flex>
+        </v-layout> -->
 
       <!-- Github -->
       <v-layout my-5>
@@ -46,14 +55,7 @@
           <RepositoryList></RepositoryList>
         </v-flex>
       </v-layout>
-
-      <!-- translate -->
-      <v-layout>
-        <v-flex>
-          <Translate></Translate>
-        </v-flex>
-        </v-layout>
-    </v-container>
+    <!-- </v-container> -->
   </div>
 </template>
 
@@ -63,7 +65,6 @@ import PortfolioList from "../components/PortfolioList";
 import PostList from "../components/PostList";
 import RepositoryList from "../components/RepositoryList";
 import ImageUpload from "../components/ImageUpload";
-import Translate from "../components/Translate";
 
 export default {
   name: "HomePage",
@@ -80,7 +81,7 @@ export default {
     PostList,
     RepositoryList,
     ImageUpload,
-    Translate
+    
   },
   methods: {
     getImgUrl(img) {
@@ -95,22 +96,29 @@ export default {
       }
     }
   },
-  props: ['user']
+  props: ["user"]
 };
 </script>
 
+
 <style scoped>
+h2{
+  font-size: 8vh;
+}
+#aboutUsbox {
+  background-color: #FEF1CA;
+}
+#aboutUs{
+  padding: 50px;
+}
 @media screen and (max-width: 1904px) {
-  #aboutMe {
+  #aboutUs {
     font-size: 25px;
   }
 }
 
 @media screen and (max-width: 760px) {
-  #profileImg {
-    display: none;
-  }
-  #aboutMe {
+  #aboutUs {
     font-size: 20px;
   }
 }

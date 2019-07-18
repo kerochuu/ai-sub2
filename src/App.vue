@@ -2,7 +2,7 @@
   <v-app>
     <Header :user="user" />
     <Scroll />
-    <v-content id="content">
+    <v-content id="body">
       <router-view :user="user" />
     </v-content>
     <Footer />
@@ -16,8 +16,12 @@ import Footer from "./components/Footer";
 import Scroll from "./components/Scroll";
 import FirebaseService from "./services/FirebaseService";
 
-
-if (!window.chrome || navigator.userAgent.indexOf("Edge") !== -1 || navigator.userAgent.indexOf("OPR") !== -1 || navigator.userAgent.indexOf("Version") !== -1) {
+if (
+  !window.chrome ||
+  navigator.userAgent.indexOf("Edge") !== -1 ||
+  navigator.userAgent.indexOf("OPR") !== -1 ||
+  navigator.userAgent.indexOf("Version") !== -1
+) {
   alert("이 사이트는 크롬에 최적화 되어 있읍니다. 크롬을 깔아주세욥");
 }
 
@@ -54,6 +58,12 @@ export default {
 </script>
 
 <style>
+#body {
+  background-image: linear-gradient(to bottom right, #e39b82, #fef3cb);
+}
+div {
+  font-family: "Montserrat", sans-serif;
+}
 @media screen and(max-width:48px) {
   #content {
     margin-top: 48px;

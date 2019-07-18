@@ -33,7 +33,7 @@
         </v-toolbar-side-icon>
 
         <v-list class="hbmenu">
-          <v-list-tile @click="movePost" ><v-icon size="25" class="mr-2 icon">fa-envelope</v-icon> POST </v-list-tile>
+          <!-- <v-list-tile @click="movePost" ><v-icon size="25" class="mr-2 icon">fa-envelope</v-icon> POST </v-list-tile> -->
           <v-list-tile  @click="movePortfolio"> <v-icon size="25" class="mr-2 icon">fa-folder-open</v-icon> PORTFOLIO </v-list-tile>
           <v-list-tile  @click="movePortfolioWriter"> <v-icon size="25" class="mr-2 icon">fa-pencil</v-icon> PORTFOLIOWRITE </v-list-tile>
           <v-list-tile v-if="!user" @click="showLogin"> <v-icon size="25" class="mr-2 icon">fa-unlock</v-icon> LOGIN </v-list-tile>
@@ -90,7 +90,7 @@ export default {
 
 <style scoped>
 .theme--light.v-toolbar {
-  background-color: rgb(182, 133, 90);
+  background-color: rgba(238,191,159,0.7);
 }
 
 .link-text {
@@ -105,7 +105,7 @@ export default {
 }
 #title {
   font-family: "Montserrat", sans-serif;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 23px;
   color: #604f3e;
 }
