@@ -76,9 +76,16 @@
                 this.randomImage = false;
             },
             randomImageUpload() {
-                document.querySelector('#preview').src = "https://source.unsplash.com/random";
-                document.getElementById('preview').style.display = "block"; // 섬네일 이미지 보임
-                this.randomImage = true;
+                const axios = require('axios')
+                const instance = axios.get('https://api.unsplash.com/photos/random/?query=nature&client_id=d1b20913bdc574be175e41b577d9b90cc41704df8e884379efb2d5dea0c39ed7&client_secret=13b1528997eb643e0b3d218f11f355c8e3573d390bcd5add02087ecc5b6fb8a4')
+                .then((response) => {
+                    document.querySelector('#preview').src = response.data.urls.full;
+                    document.getElementById('preview').style.display = "block"; // 섬네일 이미지 보임
+                    this.randomImage = true;
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
             }
         }
     };
