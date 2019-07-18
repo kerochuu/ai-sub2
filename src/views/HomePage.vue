@@ -4,22 +4,20 @@
     <div v-on:click="changeBannerImg">
       <ImgBanner v-bind:imgSrc="img">
         <div id="introduce" style="line-height:1.2em; color:gold;" slot="text">
-          Do u love Avocado?<br />Do u love Avocado?
+          Do u love Avocado?
+          <br />Do u love Avocado?
         </div>
       </ImgBanner>
     </div>
     <v-container>
-      <!-- About Me -->
+      <!-- About Us -->
       <v-layout my-5>
-        <v-flex id="aboutMe" sm12>
-          <h2 class="headline mb-3 text-sm-center">About Me</h2>
+        <v-flex id="aboutUs" sm12>
+          <h2 class="headline mb-3 text-xs-center">About US</h2>
           <p class="mr-4 text-sm-center">
             안녕하세요, 서울 SSAFY 1기 이주원입니다.
             <br />아보카도 좋아하세요?
           </p>
-        </v-flex>
-        <v-flex id="profileImg" md4>
-          <v-img :src="getImgUrl('avocado.jpeg')" aspect-ratio="1.5" />
         </v-flex>
       </v-layout>
 
@@ -46,13 +44,6 @@
           <RepositoryList></RepositoryList>
         </v-flex>
       </v-layout>
-
-      <!-- translate -->
-      <v-layout>
-        <v-flex>
-          <Translate></Translate>
-        </v-flex>
-        </v-layout>
     </v-container>
   </div>
 </template>
@@ -95,22 +86,20 @@ export default {
       }
     }
   },
-  props: ['user']
+  props: ["user"]
 };
 </script>
 
 <style scoped>
 @media screen and (max-width: 1904px) {
-  #aboutMe {
+  #aboutUs {
     font-size: 25px;
+    background-color: #f0f0f0;
   }
 }
 
 @media screen and (max-width: 760px) {
-  #profileImg {
-    display: none;
-  }
-  #aboutMe {
+  #aboutUs {
     font-size: 20px;
   }
 }
