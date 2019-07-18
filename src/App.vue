@@ -2,7 +2,7 @@
   <v-app>
     <Header :user="user" />
     <Scroll />
-    <v-content id="content">
+    <v-content id="body">
       <router-view :user="user" />
     </v-content>
     <Footer />
@@ -54,6 +54,12 @@ export default {
 </script>
 
 <style>
+#body{
+  background-image: linear-gradient(to bottom right, #E39B82, #FEF3CB);
+}
+div{
+  font-family: "Montserrat", sans-serif;
+}
 @media screen and(max-width:48px) {
   #content {
     margin-top: 48px;

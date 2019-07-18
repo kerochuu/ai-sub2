@@ -82,6 +82,7 @@ li{
   list-style : none;
 }
 ul{
+  color: #f0f0f0;
   float:left;
 }
 </style>
