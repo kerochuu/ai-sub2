@@ -25,12 +25,13 @@
 
 <script>
 import weather from "@/components/weather.vue";
+import Translate from "./Translate.vue";
 
 export default {
   name: "Footer",
   components: {
     weather,
-    translate
+    Translate
   }
 };
 </script>
