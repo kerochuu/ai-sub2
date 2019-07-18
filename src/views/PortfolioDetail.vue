@@ -11,7 +11,11 @@
     <v-flex xs12 text-xs-center round my-5>
       <v-btn color="info" dark v-on:click="updateProfileImage">
         <v-icon size="25" class="mr-2">fa-plus</v-icon>
-        변경하기
+        변경
+      </v-btn>
+      <v-btn color="info" dark v-on:click="deleteProfile">
+        <v-icon size="25" class="mr-2">fa-minus</v-icon>
+        삭제
       </v-btn>
     </v-flex>
   </v-layout>
@@ -43,6 +47,20 @@ export default {
       FirebaseService.postImage(this.portfolio.img);
       console.log("이미지 업데이트!")
       alert("변경완료!")
+    },
+    deleteProfile: function() {
+      const user = FirebaseService.getUserInfo();
+      if (user == null) {
+        alert("로그인이 필요합니다.")
+        return
+      }
+
+      FirebaseService.deletePost(this.$route.params.pid);
+      console.log("삭제완료")
+      alert("삭제완료!")
+      this.$router.push({
+        name: 'portfolio'
+      })
     }
   },
   mounted() {
