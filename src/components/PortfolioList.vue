@@ -43,6 +43,9 @@ export default {
 		},
 		loadMorePortfolios() {
       this.limits += 4;
+
+      if(this.limits >= this.portfolios.length)
+        this.loadMore = false;
     }
 	},
 }
