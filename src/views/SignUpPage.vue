@@ -1,19 +1,18 @@
 <template>
   <div>
-    <ImgBanner imgSrc="https://source.unsplash.com/5brvJbR1Pn8/1600x900">
-      <div style="line-height:1.2em;font-size:1.2em;" slot="text">Write your Portfolio</div>
-    </ImgBanner>
-
     <v-container>
-      <v-layout>
+            <div>
+        <h1 style="text-align:center; font-size:8vh; margin-top:100px">Signup Page</h1>
+      </div>
+      <v-layout style="margin-top: 30%">
         <h4>이메일</h4>
         <input v-model="email" type="email" />
+        </v-layout><v-layout style="margin-top: 20px">
         <h4>비밀번호</h4>
         <input v-model="password" type="password" />
-        <div>
+        </v-layout><v-layout style="margin-top: 20px">
           <button @click="signup">Sign Up</button>
-        </div>
-      </v-layout>
+        </v-layout>
     </v-container>
   </div>
 </template>

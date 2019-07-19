@@ -13,7 +13,7 @@
         <img v-else-if = "weather == 'Thunderstorm'"
           src="../assets/weatherIcon/cloud-lightning.png">
         </img>
-        <img v-else-if = "weather == 'Mist' || weather == 'Haze'"
+        <img v-else-if = "weather == 'Mist' || weather == 'Haze'|| weather == 'Fog'"
           src="../assets/weatherIcon/cloud-fog-2.png">
         </img>
         <img v-else-if = "weather == 'Clear'"

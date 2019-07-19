@@ -1,14 +1,13 @@
 <template>
   <div>
     <i class="fas fa-pencil-alt"></i>
-    <!-- <div v-on:click="changeBannerImg"> -->
-      <!-- <ImgBanner v-bind:imgSrc="img"> -->
-      <ImgBanner>
+    <div v-on:click="changeBannerImg">
+      <ImgBanner :imgSrc="img">
         <div id="introduce" style="line-height:1.2em; color:#333;" slot="text">
           Do u love Avocado?<br/>Do u love Avocado?
         </div>
       </ImgBanner>
-    <!-- </div> -->
+    </div>
 
     <!-- <v-container> -->
       <!-- About Us -->
@@ -22,15 +21,6 @@
         </div>
       
       </div>
-      <!-- <v-layout my-5>
-        <v-flex id="aboutUs" sm12>
-          <h2 class="headline mb-3 text-xs-center">About US</h2>
-          <p class="mr-4 text-sm-center">
-            안녕하세요, 서울 SSAFY 1기 이주원입니다.
-            <br />아보카도 좋아하세요?
-          </p>
-        </v-flex>
-      </v-layout> -->
 
       <!-- Portfolio -->
       <v-layout my-5>
@@ -96,7 +86,7 @@ export default {
       }
     }
   },
-  props: ["user"]
+  props: ['user']
 };
 </script>
 

@@ -80,10 +80,13 @@ export default {
   methods: {
     async postPortfolios() {
       this.img = await this.$refs.imgUpload.imageUpload();
-      FirebaseService.postPortfolio(this.title, this.body, this.img);
-      this.$router.push({
-        name: "portfolio"
-      });
+      FirebaseService.postPortfolio(this.title, this.body, this.img)
+      .then(() => {
+        alert("포트폴리오가 작성되었습니다.")
+        this.$router.push({
+          name: "portfolio"
+        });
+      })
     }
   }
 };
